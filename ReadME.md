@@ -1,5 +1,8 @@
 🎨 SAM2 Object Transfer API + Streamlit Frontend
 
+<p align="center">
+  <img src="ui.jpeg" alt="SAM2 Object Transfer - Streamlit UI" width="850">
+</p>
 
 **Extract any object from a source image and seamlessly place it on a new background** using **Segment Anything Model 2 (SAM2)**.
 
@@ -73,6 +76,23 @@ GET,      /   , Welcome message
 POST,   /transfer,Main endpoint (source + background)
  ```
 
+### test apis
+
+<p align="center">
+  <img src="api_1.jpeg" alt="SAM2 Object Transfer - Streamlit UI" width="850">
+</p>
+
+Example with curl:
+```bash
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/transfer' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: multipart/form-data' \
+  -F 'source=@bird.jpg;type=image/jpeg' \
+  -F 'background=@background.jpg;type=image/jpeg'
+```
+
 
 ## How It Works 
 
@@ -85,6 +105,7 @@ Refines mask (dilation + soft edges)
 Scales object to fit background nicely
 
 Composites with perfect centering
-    
+
+
 
 
